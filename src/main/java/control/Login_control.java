@@ -6,7 +6,6 @@ import dbconn.dbconn;
 public class Login_control {
 	private Connection conn;
 	private Statement stmt;
-	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
 	private String driver;

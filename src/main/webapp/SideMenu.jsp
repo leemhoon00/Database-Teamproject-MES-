@@ -163,7 +163,7 @@ session.setAttribute("id", id);
       </a>
     </li>
     <li>
-      <a onclick="User_Management_Button_Event()">
+      <a onclick="Worker_Management_Button_Event()">
         <i class="fa fa-tachometer" aria-hidden="true"></i> 사용자 관리
       </a>
     </li>
@@ -197,8 +197,8 @@ function Part_Button_Event(){
 function Facility_Button_Event(){
 	document.getElementById("pframe").src="facility/Facility_UI.jsp";
 }
-function User_Management_Button_Event(){
-	document.getElementById("pframe").src="user_management/User_Management_UI.jsp";
+function Worker_Management_Button_Event(){
+	document.getElementById("pframe").src="worker_management/Worker_Management_UI.jsp";
 }
 </script>
 </body>
