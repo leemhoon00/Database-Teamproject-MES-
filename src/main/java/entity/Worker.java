@@ -7,6 +7,17 @@ public class Worker {
 	private String position;
 	private String phone_number;
 	
+	public Worker(String id, String pw, String name, String position, String phone_number) {
+		this.ID = id;
+		this.PW = pw;
+		this.name = name;
+		this.position = position;
+		this.phone_number = phone_number;
+	}
+	public Worker() {
+		
+	}
+	
 	public String getID() {
 		return ID;
 	}

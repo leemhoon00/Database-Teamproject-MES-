@@ -197,7 +197,9 @@ var selectedTable='0';
 	<script>
 	setdisplay(1);
 	</script>
+	<div class="col-6" id="Worker_Content_UI" style="margin-left:0px;">
 	
+	</div>
 </div>
 </body>
 </html>

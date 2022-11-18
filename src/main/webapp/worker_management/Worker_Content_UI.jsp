@@ -30,7 +30,70 @@ String id = request.getParameter("selectedTable");
 Worker_Information control = new Worker_Information();
 Worker w = control.getWorkerInformation(id);
 
-
+boolean insertbutton = false;
+boolean deletebutton = false;
+boolean updatebutton = false;
+if(id.equals("0")){
+	insertbutton=true;
+}
+else{
+	deletebutton = true;
+	updatebutton = true;
+}
 %>
+
+<div class="card">
+	<div class="card-header"
+		style="font-size: 20px; background-color: white;"></div>
+	<div class="card-body">
+		<form>
+			<div class="row">
+				<div class="col-6">
+					<label>이름</label>
+				</div>
+				<div class="col-6">
+					<label>직위</label>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control" value="<%=w.getName() %>" name="name">
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control" value="<%=w.getPosition() %>" name="position">
+				</div>
+				
+				
+				
+				<div class="col-6">
+					<label>ID</label>
+				</div>
+				<div class="col-6">
+					<label>PW</label>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control" value="<%=w.getID()%>" name="id">
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control" value="<%=w.getPW() %>" name="pw">
+				</div>
+				
+				
+				<div class="col-12">
+					<label>전화번호</label>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control" value="<%=w.getPhone_number() %>" name="phonenumber">
+				</div>
+				
+				
+				
+				<div class="col-12">
+					<button id="deletebutton" style='<%=deletebutton?"":"display:none" %>' class="btn btn-danger float-right" type="submit" formaction="delete.jsp" formmethod="post">삭제</button>
+					<button id="updatebutton" style='margin-right: 5px; <%=updatebutton?"":"display:none" %>' class="btn btn-info float-right" type="submit" formaction="update.jsp" formmethod="post">수정</button>
+					<button id="insertbutton" style='<%=insertbutton?"":"display:none" %>' class="btn btn-info float-right" type="submit" formaction="insert.jsp" formmethod="post">등록</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 </body>
 </html>
