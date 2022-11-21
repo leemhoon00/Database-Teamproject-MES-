@@ -99,11 +99,11 @@ public class Worker_Control {
 		}
 	}
 	
-	public Boolean DeleteWorker(Worker w) {
+	public Boolean DeleteWorker(String id) {
 		int temp=0;
 		
 		try {
-			String sql = "delete from worker where id='"+w.getID()+"'";
+			String sql = "delete from worker where id='"+id+"'";
 			
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			stmt = conn.createStatement();

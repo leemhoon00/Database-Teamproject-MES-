@@ -21,6 +21,16 @@ if(id==null || id.equals("") || pw==null || pw.equals("") || name==null || name.
 	out.println("<script>alert('필수란을 입력하시오');history.back();</script>");
 }
 
+Worker w = new Worker(id, pw, name, position, phone_number);
+Worker_Control control = new Worker_Control();
+Boolean result = control.InsertWorker(w);
+
+if(result==false){
+	out.println("<script>alert('실패');history.back();</script>");
+}
+else{
+	out.println("<script>location.href='Worker_Management_UI.jsp'</script>");
+}
 
 %>
 </body>

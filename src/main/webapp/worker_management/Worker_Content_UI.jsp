@@ -81,7 +81,7 @@ else{
 					<label>전화번호</label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getPhone_number() %>" name="phonenumber">
+					<input type="text" class="form-control" value="<%=w.getPhone_number() %>" name="phone_number">
 				</div>
 				
 				
