@@ -34,7 +34,7 @@ Boolean result = control.UpdateFacility(f);
 
 
 if(result==false){
-	out.println("<script>alert('실패');history.back();</script>");
+	out.println("<script>alert('실패');location.href='Facility_UI.jsp';</script>");
 }
 else{
 	out.println("<script>location.href='Facility_UI.jsp'</script>");

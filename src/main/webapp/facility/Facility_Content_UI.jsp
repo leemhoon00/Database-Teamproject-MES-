@@ -60,7 +60,7 @@ else{
 					<label>분당 비용</label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=f.getFacility_name() %>" name="facility_name">
+					<input type="text" class="form-control" value="<%=f.getFacility_name() %>" name="facility_name" <%=deletebutton ? "readonly" : "" %>>
 				</div>
 				<div class="col-3">
 					<select class="form-select" aria-label="Default select example" name="status">

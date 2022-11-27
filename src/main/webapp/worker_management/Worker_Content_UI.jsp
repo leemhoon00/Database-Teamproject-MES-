@@ -70,7 +70,7 @@ else{
 					<label>PW</label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getID()%>" name="id">
+					<input type="text" class="form-control" value="<%=w.getID()%>" name="id" <%=deletebutton ? "readonly" : "" %>>
 				</div>
 				<div class="col-6">
 					<input type="text" class="form-control" value="<%=w.getPW() %>" name="pw">
