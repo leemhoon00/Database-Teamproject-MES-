@@ -1,4 +1,4 @@
-package control;
+package login_control;
 
 import java.sql.*;
 import dbconn.dbconn;

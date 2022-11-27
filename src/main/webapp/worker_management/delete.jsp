@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="entity.Worker" %>
-<%@ page import="control.Worker_Control" %>
+<%@ page import="worker_control.Worker_Control" %>
 <!DOCTYPE html>
 <html>
 <head>

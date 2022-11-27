@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Worker" %>
-<%@ page import="control.Worker_Search" %>
+<%@ page import="worker_control.Worker_Search" %>
 
 <%
 String name = request.getParameter("name");

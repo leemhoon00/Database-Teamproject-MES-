@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="entity.Worker" %>
-<%@ page import="worker_control.Worker_Information" %>
+<%@ page import="entity.Facility" %>
+<%@ page import="facility_control.Facility_Information" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,9 @@
 <%
 String id = request.getParameter("selectedTable");
 
-Worker_Information control = new Worker_Information();
-Worker w = control.getWorkerInformation(id);
+Facility_Information control = new Facility_Information();
+Facility f = control.getFacilityInformation(id);
+
 
 boolean insertbutton = false;
 boolean deletebutton = false;
@@ -49,39 +51,26 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>이름</label>
+					<label>설비명</label>
+				</div>
+				<div class="col-3">
+					<label>사용유무</label>
+				</div>
+				<div class="col-3">
+					<label>분당 비용</label>
 				</div>
 				<div class="col-6">
-					<label>직위</label>
+					<input type="text" class="form-control" value="<%=f.getFacility_name() %>" name="facility_name">
 				</div>
-				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getName() %>" name="name">
-				</div>
-				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getPosition() %>" name="position">
+				<div class="col-3">
+					<select class="form-select" aria-label="Default select example" name="status">
+						<option value="Y">Y</option>
+						<option value="N" <%=f.getStatus().equals("N") ? "selected" : "" %>>N</option>
+					</select>
 				</div>
 				
-				
-				
-				<div class="col-6">
-					<label>ID</label>
-				</div>
-				<div class="col-6">
-					<label>PW</label>
-				</div>
-				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getID()%>" name="id">
-				</div>
-				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getPW() %>" name="pw">
-				</div>
-				
-				
-				<div class="col-12">
-					<label>전화번호</label>
-				</div>
-				<div class="col-6">
-					<input type="text" class="form-control" value="<%=w.getPhone_number() %>" name="phone_number">
+				<div class="col-3">
+					<input type="text" class="form-control" value="<%=f.getMinute_cost() %>" name="minute_cost">
 				</div>
 				
 				<hr style="margin-top:10px; margin-bottom:10px;">
@@ -95,5 +84,6 @@ else{
 		</form>
 	</div>
 </div>
+
 </body>
 </html>

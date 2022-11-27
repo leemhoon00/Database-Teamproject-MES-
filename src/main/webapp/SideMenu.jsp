@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="control.Login_control"%>
+<%@ page import="login_control.Login_control"%>
 <%
 String id = request.getParameter("id");
 String pw = request.getParameter("pw");

@@ -1,4 +1,4 @@
-package control;
+package facility_control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import dbconn.dbconn;
+import entity.Facility;
 import entity.Worker;
 
-public class Worker_Control {
+public class Facility_Control {
 	private Connection conn;
 	private Statement stmt;
 	private PreparedStatement pstmt;
@@ -21,7 +22,7 @@ public class Worker_Control {
 	private String dbUser;
 	private String dbPass;
 	
-	public Worker_Control() {
+	public Facility_Control() {
 		driver = dbconn.getDriver();
 		jdbcDriver = dbconn.getjdbcDriver();
 		dbUser = dbconn.getdbUser();
@@ -35,23 +36,18 @@ public class Worker_Control {
 		}
 	}
 	
-	
-	
-	
-	// 작업자 등록
-	public Boolean InsertWorker(Worker w) {
-		String sql = "insert into worker values(?,?,?,?,?)";
+	//설비 등록
+	public Boolean InsertFacility(Facility f) {
+		String sql = "insert into facility values(?,?,?)";
 		int temp=0;
 		
 		try {
 			conn = DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, w.getID());
-			pstmt.setString(2, w.getPW());
-			pstmt.setString(3, w.getName());
-			pstmt.setString(4, w.getPosition());
-			pstmt.setString(5, w.getPhone_number());
+			pstmt.setString(1, f.getFacility_name());
+			pstmt.setString(2, f.getStatus());
+			pstmt.setInt(3, f.getMinute_cost());
 			
 			temp = pstmt.executeUpdate();
 			
@@ -69,19 +65,17 @@ public class Worker_Control {
 		}
 	}
 	
-	public Boolean UpdateWorker(Worker w) {
+	public Boolean UpdateFacility(Facility f) {
 		int temp=0;
 		try {
-			String sql = "update worker set PW=?, name=?, position=?, phone_number=? where id=?";
+			String sql = "update facility set status=?, minute_cost=? where facility_name=?";
 			
 			conn = DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, w.getPW());
-			pstmt.setString(2, w.getName());
-			pstmt.setString(3, w.getPosition());
-			pstmt.setString(4, w.getPhone_number());
-			pstmt.setString(5, w.getID());
+			pstmt.setString(1, f.getStatus());
+			pstmt.setInt(2, f.getMinute_cost());
+			pstmt.setString(3, f.getFacility_name());
 			
 			temp = pstmt.executeUpdate();
 			
@@ -99,11 +93,11 @@ public class Worker_Control {
 		}
 	}
 	
-	public Boolean DeleteWorker(String id) {
+	public Boolean DeleteFacility(String facility_name) {
 		int temp=0;
 		
 		try {
-			String sql = "delete from worker where id='"+id+"'";
+			String sql = "delete from facility where facility_name='"+facility_name+"'";
 			
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			stmt = conn.createStatement();
