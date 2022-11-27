@@ -167,6 +167,11 @@ session.setAttribute("id", id);
         <i class="fa fa-tachometer" aria-hidden="true"></i> 사용자 관리
       </a>
     </li>
+    <li>
+      <a onclick="Company_Button_Event()">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> 협력사 관리
+      </a>
+    </li>
   </ul>
 </div>
 
@@ -199,6 +204,9 @@ function Facility_Button_Event(){
 }
 function Worker_Management_Button_Event(){
 	document.getElementById("pframe").src="worker_management/Worker_Management_UI.jsp";
+}
+function Company_Button_Event(){
+	document.getElementById("pframe").src="company/Company_UI.jsp";
 }
 </script>
 </body>
