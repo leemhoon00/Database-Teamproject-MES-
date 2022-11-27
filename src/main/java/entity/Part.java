@@ -14,7 +14,7 @@ public class Part {
 		this.part_name = part_name;
 		this.price=price;
 		this.quantity = quantity;
-		this.safety_quantity = quantity;
+		this.safety_quantity = safety_quantity;
 	}
 
 	public String getPart_name() {
