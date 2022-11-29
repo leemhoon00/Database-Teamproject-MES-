@@ -82,6 +82,9 @@ public class Order_Information {
 					if(o.getOrder_date()!=null) {
 						o.setOrder_date(o.getOrder_date().substring(0,10));
 					}
+					if(o.getNote()==null) {
+						o.setNote("");
+					}
 				}
 				
 				rs.close();

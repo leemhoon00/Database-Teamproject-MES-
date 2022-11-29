@@ -49,10 +49,10 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>이름</label>
+					<label>이름<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
-					<label>직위</label>
+					<label>직위<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
 					<input type="text" class="form-control" value="<%=w.getName() %>" name="name">
@@ -62,12 +62,11 @@ else{
 				</div>
 				
 				
-				
 				<div class="col-6">
-					<label>ID</label>
+					<label>ID<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
-					<label>PW</label>
+					<label>PW<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
 					<input type="text" class="form-control" value="<%=w.getID()%>" name="id" <%=deletebutton ? "readonly" : "" %>>

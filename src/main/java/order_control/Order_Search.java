@@ -85,7 +85,7 @@ public class Order_Search {
 				Order o = new Order();
 				o.setCompany_name(rs.getString("company_name"));
 				o.setEnd_date(rs.getString("end_date"));
-				o.setExp_date(rs.getString("exp_date"));
+				o.setExp_date(rs.getString("exp_date").substring(0,10));
 				o.setNote(rs.getString("note"));
 				o.setOrder_date(rs.getString("order_date"));
 				o.setOrder_name(rs.getString("order_name"));
@@ -125,7 +125,7 @@ public class Order_Search {
 					Order o = new Order();
 					o.setCompany_name(rs.getString("company_name"));
 					o.setEnd_date(rs.getString("end_date"));
-					o.setExp_date(rs.getString("exp_date"));
+					o.setExp_date(rs.getString("exp_date").substring(0,10));
 					o.setNote(rs.getString("note"));
 					o.setOrder_date(rs.getString("order_date"));
 					o.setOrder_name(rs.getString("order_name"));

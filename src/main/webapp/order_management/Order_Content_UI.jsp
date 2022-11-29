@@ -33,12 +33,19 @@ Order o = control.getOrderInformation(order_number);
 boolean insertbutton = false;
 boolean deletebutton = false;
 boolean updatebutton = false;
+boolean completebutton = false;
+boolean complete = false;
 if(order_number.equals("0")){
 	insertbutton=true;
 }
 else{
 	deletebutton = true;
 	updatebutton = true;
+	completebutton = true;
+}
+if(!o.getEnd_date().equals("")){
+	complete = true;
+	completebutton = false;
 }
 %>
 
@@ -49,13 +56,13 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>수주명</label>
+					<label>수주명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
-					<label>기업명</label>
+					<label>기업명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=o.getOrder_name() %>" name="order_name">
+					<input type="text" class="form-control" value="<%=o.getOrder_name() %>" name="order_name" <%=complete ? "readonly" : "" %>>
 				</div>
 				<div class="col-6">
 					<select class="form-select" name="company_name" id="company_name">
@@ -65,22 +72,22 @@ else{
 				
 				
 				<div class="col-6">
-					<label>부품명</label>
+					<label>부품명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-3">
-					<label>수량</label>
+					<label>수량<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-3">
 					<label>가격</label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=o.getPart_name() %>" name="part_name">
+					<input type="text" class="form-control" value="<%=o.getPart_name() %>" name="part_name" <%=complete ? "readonly" : "" %>>
 				</div>
 				<div class="col-3">
-					<input type="text" class="form-control" value="<%=o.getQuantity() %>" name="quantity">
+					<input type="text" class="form-control" value="<%=o.getQuantity() %>" name="quantity" <%=complete ? "readonly" : "" %>>
 				</div>
 				<div class="col-3">
-					<input type="text" class="form-control" value="<%=o.getQuantity() %>" name="order_price">
+					<input type="text" class="form-control" value="<%=o.getOrder_price() %>" name="order_price" <%=complete ? "readonly" : "" %>>
 				</div>
 				
 				
@@ -91,10 +98,10 @@ else{
 					<label>납기예정일</label>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=o.getOrder_date() %>" name="order_date">
+					<input type="date" class="form-control" value="<%=o.getOrder_date() %>" name="order_date" readonly>
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=o.getExp_date() %>" name="exp_date">
+					<input type="date" class="form-control" value="<%=o.getExp_date() %>" name="exp_date" <%=complete ? "readonly" : "" %>>
 				</div>
 				
 				<div class="col-6">
@@ -103,7 +110,7 @@ else{
 				<div class="col-6">
 				</div>
 				<div class="col-6">
-					<input type="text" class="form-control" value="<%=o.getEnd_date() %>" name="end_date">
+					<input type="date" class="form-control" value="<%=o.getEnd_date() %>" name="end_date" readonly>
 				</div>
 				<div class="col-6">
 				</div>
@@ -113,15 +120,17 @@ else{
 				</div>
 				<div class="col-12">
 					<p>
-						<textarea class="form-control" rows="5" name="note" id="note"></textarea>
+						<textarea class="form-control" rows="5" name="note" id="note"><%=o.getNote() %></textarea>
 					</p>
 				</div>
 				
+				<input type="text" style="display:none" name="order_number" value="<%=o.getOrder_number()%>"></input>
 				<hr style="margin-top:10px; margin-bottom:10px;">
 				
 				<div class="col-12">
 					<button id="deletebutton" style='<%=deletebutton?"":"display:none" %>' class="btn btn-danger float-right" type="submit" formaction="delete.jsp" formmethod="post">삭제</button>
 					<button id="updatebutton" style='margin-right: 5px; <%=updatebutton?"":"display:none" %>' class="btn btn-info float-right" type="submit" formaction="update.jsp" formmethod="post">수정</button>
+					<button id="completebutton" style='margin-right: 5px; <%=completebutton?"":"display:none" %>' class="btn btn-info float-right" type="submit" formaction="complete.jsp" formmethod="post">납기</button>
 					<button id="insertbutton" style='<%=insertbutton?"":"display:none" %>' class="btn btn-info float-right" type="submit" formaction="insert.jsp" formmethod="post">등록</button>
 				</div>
 			</div>
@@ -138,6 +147,7 @@ $.ajax({
         $('#company_name').html(data);
   }
 });
+
 </script>
 </body>
 </html>

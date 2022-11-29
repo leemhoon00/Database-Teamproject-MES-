@@ -19,6 +19,9 @@ int order_price = Integer.parseInt(request.getParameter("order_price"));
 String exp_date = request.getParameter("exp_date");
 String end_date = request.getParameter("end_date");
 String note = request.getParameter("note");
+if(note == null || note.equals("")){
+	note = "";
+}
 
 
 

@@ -13,10 +13,10 @@
 int order_number = Integer.parseInt(request.getParameter("order_number"));
 
 Order_Control control = new Order_Control();
-Boolean result = control.DeleteOrder(order_number);
+Boolean result = control.CompleteOrder(order_number);
 
 if(result==false){
-	out.println("<script>alert('실패');location.href='Order_Management_UI.jsp';</script>");
+	out.println("<script>alert('부품의 갯수가 부족합니다');location.href='Order_Management_UI.jsp';</script>");
 }
 else{
 	out.println("<script>location.href='Order_Management_UI.jsp'</script>");

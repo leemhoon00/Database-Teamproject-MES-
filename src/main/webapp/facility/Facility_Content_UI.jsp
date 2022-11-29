@@ -51,7 +51,7 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>설비명</label>
+					<label>설비명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-3">
 					<label>사용유무</label>

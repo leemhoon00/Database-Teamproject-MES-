@@ -40,6 +40,17 @@ public class Order {
 		this.end_date = end_date;
 		this.note = note;
 	}
+	public Order(int order_number, String order_name, String company_name, String part_name, int quantity, int order_price, String exp_date, String end_date, String note) {
+		this.order_number = order_number;
+		this.order_name = order_name;
+		this.company_name = company_name;
+		this.part_name = part_name;
+		this.quantity = quantity;
+		this.order_price = order_price;
+		this.exp_date = exp_date;
+		this.end_date = end_date;
+		this.note = note;
+	}
 
 	public int getOrder_number() {
 		return order_number;

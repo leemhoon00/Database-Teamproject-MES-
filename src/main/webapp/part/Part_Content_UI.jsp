@@ -50,7 +50,7 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>부품명</label>
+					<label>부품명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-6">
 					<label>가격</label>

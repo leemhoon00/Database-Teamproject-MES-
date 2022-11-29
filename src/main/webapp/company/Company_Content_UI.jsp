@@ -50,7 +50,7 @@ else{
 		<form>
 			<div class="row">
 				<div class="col-6">
-					<label>기업명</label>
+					<label>기업명<span class="text-danger">*</span></label>
 				</div>
 				<div class="col-3">
 					<label>고객사</label>

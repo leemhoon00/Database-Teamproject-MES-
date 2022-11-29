@@ -18,6 +18,10 @@ Company c = new Company(company_name, client_company, outsourcing_company);
 Company_Control control = new Company_Control();
 Boolean result = control.InsertCompany(c);
 
+if(company_name==null || company_name.equals("")){
+	out.println("<script>alert('필수란을 입력하시오');history.back();</script>");
+}
+
 if(result==false){
 	out.println("<script>alert('실패');location.href='Company_UI.jsp';</script>");
 }
