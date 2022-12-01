@@ -1,6 +1,7 @@
 package entity;
 
 public class Work {
+	private int work_number;
 	private String part_name;
 	private String facility_name;
 	private int quantity;
@@ -22,7 +23,20 @@ public class Work {
 		this.worker = worker;
 		this.end_time = end_time;
 	}
+	
+	public Work(int work_number, String start_time, String end_time, String faulty) {
+		this.work_number = work_number;
+		this.start_time = start_time;
+		this.end_time = end_time;
+		this.faulty = faulty;
+	}
 
+	public int getWork_number() {
+		return work_number;
+	}
+	public void setWork_number(int work_number) {
+		this.work_number = work_number;
+	}
 	public String getPart_name() {
 		return part_name;
 	}

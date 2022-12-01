@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="entity.Work"%>
+<%@ page import="my_work_control.Work_Search"%>
+<%@ page import="java.util.List" %>
+
+<%
+Work_Search control = new Work_Search();
+List<Work> list;
+
+list = control.getWorkList();
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +41,58 @@
 	<div class="card-body">
 		<div class="form-inline" class="row">
 			<div class="col-12" id="maindiv">
-				
+				<%
+				for(Work w : list){
+				%>
+				<div>
+					<form>
+						<input type="text" style="display:none" name="work_number" value="<%=w.getWork_number() %>">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>부품명</th>
+									<th>설비</th>
+									<th>수량</th>
+									<th>시작시간</th>
+									<th>종료시간</th>
+									<th>불량</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="text" class="form-control" name="part_name" value="<%=w.getPart_name() %>" readonly>
+									</td>
+									<td>
+										<input type="text" class="form-control" name="facility_name" value="<%=w.getFacility_name() %>" readonly>
+									</td>
+									<td>
+										<input type="text" class="form-control" name="quantity" value="<%=w.getQuantity() %>" readonly>
+									</td>
+									<td>
+										<input type="datetime-local" class="form-control" name="start_time" value="<%=w.getStart_time() %>">
+									</td>
+									<td>
+										<input type="datetime-local" class="form-control" name="end_time" value="<%=w.getEnd_time() %>">
+									</td>
+									<td>
+										<input type="checkbox" name="faulty" <%=w.getFaulty().equals("Y")?"checked":"" %>>
+									</td>
+									<td>
+										<button class="btn btn-danger" type="submit" formaction="delete.jsp" formmethod="post">삭제</button>
+									</td>
+									<td>
+										<button class="btn btn-info" type="submit" formaction="update.jsp" formmethod="post">수정</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+					
+				<%} %>
 			</div>
 		</div>
 		

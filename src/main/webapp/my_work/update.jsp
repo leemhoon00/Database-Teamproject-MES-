@@ -10,16 +10,10 @@
 </head>
 <body>
 <%
-String part_name = request.getParameter("part_name");
-String facility_name = request.getParameter("facility_name");
-String temp_quantity = request.getParameter("quantity");
+int work_number = Integer.parseInt(request.getParameter("work_number"));
 String start_time = request.getParameter("start_time");
 String end_time = request.getParameter("end_time");
 String faulty = request.getParameter("faulty");
-String worker = (String)session.getAttribute("id");
-int quantity=0;
-
-
 
 if(faulty == null){
 	faulty = "N";
@@ -28,19 +22,13 @@ else{
 	faulty = "Y";
 }
 
-if(part_name==null || part_name.equals("") || facility_name==null || facility_name.equals("") || temp_quantity==null || temp_quantity.equals("")){
-	out.println("<script>alert('필수란을 입력하시오');history.back();</script>");
-}
-else{
-	quantity = Integer.parseInt(temp_quantity);
-}
-
 if(start_time==null || start_time.equals("")){
 	
 }
 else{
 	start_time = start_time.replace("T"," ")+":00";
 }
+
 if(end_time==null || end_time.equals("")){
 	
 }
@@ -48,12 +36,9 @@ else{
 	end_time = end_time.replace("T"," ")+":00";
 }
 
-
-// 미완료 작업
-
-Work w = new Work(part_name, facility_name, quantity, start_time, end_time, faulty, worker);
+Work w = new Work(work_number, start_time, end_time, faulty);
 Work_Control control = new Work_Control();
-Boolean result = control.InsertWork(w);
+Boolean result = control.UpdateWork(w);
 
 if(result==false){
 	out.println("<script>alert('실패');location.href='My_Work_UI.jsp';</script>");
@@ -61,7 +46,6 @@ if(result==false){
 else{
 	out.println("<script>location.href='My_Work_UI.jsp'</script>");
 }
-
 %>
 </body>
 </html>
