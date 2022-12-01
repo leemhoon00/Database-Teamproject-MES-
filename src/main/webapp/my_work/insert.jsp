@@ -49,7 +49,7 @@ else{
 }
 
 
-// 미완료 작업
+
 
 Work w = new Work(part_name, facility_name, quantity, start_time, end_time, faulty, worker);
 Work_Control control = new Work_Control();

@@ -59,6 +59,33 @@ public class Company_Select {
 		return list;
 	}
 	
+	public List<String> get_Outsourcing_Company(){
+		List<String> list = new ArrayList<String>();
+		
+		String sql = "select company_name from company where outsourcing_company='Y'";
+		try {
+			conn = DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				String s = new String();
+				s = rs.getString("company_name");
+				
+				list.add(s);
+			}
+			
+			rs.close();
+			stmt.close();
+			conn.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public String get_Company_Name(String order_number) {
 		String company_name="";
 		String sql = "select company_name from order_table where order_number="+order_number;
