@@ -3,7 +3,6 @@ package company_control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,7 +13,6 @@ public class Company_Control {
 	private Connection conn;
 	private Statement stmt;
 	private PreparedStatement pstmt;
-	private ResultSet rs;
 	
 	private String driver;
 	private String jdbcDriver;

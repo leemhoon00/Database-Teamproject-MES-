@@ -41,6 +41,8 @@ if(rowcount!=0){
 <title>Insert title here</title>
 </head>
 <body>
+<label class="title" style="margin-left: 30px; margin-top: 10px;">설비 관리</label>
+
 <script>
 var selectedTable='0';
 </script>

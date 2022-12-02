@@ -9,7 +9,6 @@ import java.sql.Statement;
 
 import dbconn.dbconn;
 import entity.Facility;
-import entity.Worker;
 
 public class Facility_Control {
 	private Connection conn;

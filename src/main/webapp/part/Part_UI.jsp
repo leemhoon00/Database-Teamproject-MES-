@@ -23,6 +23,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<label class="title" style="margin-left: 30px; margin-top: 10px;">부품 관리</label>
+
 <div class="card">
 	<div class="card-body">
 		<div class="form-inline">
