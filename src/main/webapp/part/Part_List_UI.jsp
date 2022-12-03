@@ -56,8 +56,12 @@ var selectedTable='0';
 <div class="row">
 	<div class="col-6" style="margin-right: 0px;">
 		<div class="card" style="margin-right: 0px;">
-			<div class="card-header"
-				style="font-size: 20px; background-color: white;">부품 목록</div>
+			<div class="card-header"style="font-size: 20px; background-color: white;">
+				부품 목록
+				<div class="warningbox" style="float: right;">
+                    <div class="warningboxexp" style="display:table-cell; background:rgb(227, 183, 190); border-radius: 5px;"><h4 style="font-weight: bold; margin: 10px;">재고부족</h4></div>                    
+                </div>
+			</div>
 			<div class="card-body">
 				<table id="mytable" class="table table-bordered" style="width: 100%;"
 					role="grid">
@@ -81,7 +85,7 @@ var selectedTable='0';
 						
 						%>
 						
-						<tr class="trs pagegroup<%=pagegroup%>" id="<%=p.getPart_name() %>" onclick="TableClickEvent(this)">
+						<tr class="trs pagegroup<%=pagegroup%>" id="<%=p.getPart_name() %>" onclick="TableClickEvent(this)" style="<%=p.getQuantity()<p.getSafety_quantity() ?"background:rgb(227, 183, 190)" : ""  %>">
 							<td><%=p.getPart_name() %></td>
 							<td><%=p.getQuantity() %></td>
 						</tr>
